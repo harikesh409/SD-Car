@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Directions</title>
+<script>
+function fun(){
+var field1=document.getElementsByName("field1")[0].value;
+var url="https://api.thingspeak.com/update?api_key=ANIB1Z5DILEHGIU8&field1="+field1;
+//var myWindow = window.open(url);
+var request = new XMLHttpRequest();
+request.open("GET", url, true);
+request.send(null);
+document.getElementById("btn").disabled = true;
+alert("Executed");
+timer();
+}
+function but() {
+document.getElementById("btn").disabled = false;
+}
+function timer() {
+window.setTimeout(but, 15000);
+}
+</script>
+</head>
+<body>
+<form>
+<fieldset>
+<legend>Directions</legend>
+<input type="text" name="field1" id="field1"/>
+<input type="button" onclick="fun()" id="btn" value="submit"/>
+</fieldset>
+</form>
+
+</body>
+</html>
